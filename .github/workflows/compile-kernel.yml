@@ -165,17 +165,17 @@ jobs:
           compress_format: ${{ inputs.compress_format }}
           silent_log: ${{ inputs.silent_log }}
 
-      - name: Upload Kernel to Release
-        uses: ncipollo/release-action@main
-        if: ${{ env.PACKAGED_STATUS }} == 'success' && !cancelled()
-        with:
-          tag: kernel_stable
-          artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
-          allowUpdates: true
-          removeArtifacts: false
-          replacesArtifacts: true
-          token: ${{ secrets.GITHUB_TOKEN }}
-          body: |
-            The kernel can be used to compile Armbian and OpenWrt.
-            The kernel source code comes from: ${{ inputs.kernel_source }}
-            The kernel compilation toolchain: ${{ inputs.kernel_toolchain }}
+#      - name: Upload Kernel to Release
+#        uses: ncipollo/release-action@main
+#        if: ${{ env.PACKAGED_STATUS }} == 'success' && !cancelled()
+#        with:
+#          tag: kernel_stable
+#          artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
+#          allowUpdates: true
+#          removeArtifacts: false
+#          replacesArtifacts: true
+#          token: ${{ secrets.GITHUB_TOKEN }}
+#          body: |
+#            The kernel can be used to compile Armbian and OpenWrt.
+#            The kernel source code comes from: ${{ inputs.kernel_source }}
+#            The kernel compilation toolchain: ${{ inputs.kernel_toolchain }}
